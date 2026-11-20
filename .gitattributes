@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Garantir quebra de linha Linux (LF) em scripts shell mesmo no Windows
+*.sh text eol=lf

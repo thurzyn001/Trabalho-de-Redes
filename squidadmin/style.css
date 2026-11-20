@@ -1,0 +1,112 @@
+body {
+  font: 12px Verdana, Tahoma, Arial, sans-serif;
+  color: #000;
+  background-color: #084b96;
+}
+
+div.main {
+  background-color: #fff;
+  color: #000;
+  margin: 0 auto;
+  margin-top: 25px;
+  min-height: 500px;
+  width: 850px;
+  padding: 15px 15px 25px 15px;
+  text-align: justify;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  vertical-align: middle;
+}
+
+div.logo {
+  text-align: right;
+  padding: 10px;
+}
+
+div.menu {
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+}
+
+div.text {
+  text-align: justify;
+  width: 530px;
+}
+
+div.rodape {
+  text-align: center;
+  color: #ccc;
+  padding: 5px;
+}
+
+div.rodape a {
+ text-decoration: none;
+ color: #ccc;
+ text-decoration: none;
+}
+
+div.rodape a:hover {
+ color: #ccc;
+ text-decoration: underline;
+}
+
+a {
+ text-decoration: none;
+ color: #084b96;
+}
+
+a:hover {
+ text-decoration: underline;
+ color: #084b96;
+}
+
+h3 {
+  color: #084b96;
+}
+
+input, textarea {
+ border: 1px solid #000;
+}
+
+.btn-flush {
+  background-color: #b02a37;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 14px;
+  cursor: pointer;
+  border: 1px solid #6c171f;
+}
+
+.btn-flush:hover {
+  background-color: #8f1f2a;
+}
+
+.aviso {
+  padding: 10px 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.aviso-ok {
+  background-color: #e6f4ea;
+  border-color: #1e7e34;
+  color: #155724;
+}
+
+.aviso-erro {
+  background-color: #fdecea;
+  border-color: #b02a37;
+  color: #721c24;
+}
+
+.info-box {
+  background-color: #f4f7fb;
+  border: 1px solid #b6cde6;
+  padding: 10px 14px;
+  margin-top: 16px;
+  line-height: 1.5;
+}
