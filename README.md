@@ -65,14 +65,16 @@ flowchart LR
 ├── README.md                                  # Visão geral do projeto, arquitetura e guia principal
 ├── setup-servidor.sh                          # Script idempotente para configurar tudo automaticamente no Ubuntu (inclui proxy.pac)
 ├── scripts/
-│   ├── ativar-proxy.ps1 / ativar-proxy.bat    # Ativa o proxy do Windows (ou PAC) em 1 clique — Chrome, Edge e Firefox (normal e anônima)
-│   └── desativar-proxy.ps1 / desativar-proxy.bat # Desativa o proxy do Windows em 1 clique ao encerrar a VM
+│   ├── ativar-proxy.ps1 / ativar-proxy.bat       # Ativa o proxy do Windows (ou PAC) em 1 clique — Chrome, Edge e Firefox (normal e anônima)
+│   ├── desativar-proxy.ps1 / desativar-proxy.bat # Desativa o proxy do Windows em 1 clique ao encerrar a VM
+│   └── coletar-entrega.sh                        # Empacota automaticamente /etc/squid, Apache HTTP, /var/www e access.log em .zip
 ├── docs/
-│   ├── 01-virtualbox-e-ubuntu.md              # Criação da VM, rede NAT + Host-Only, IP fixo no DHCP e ping
-│   ├── 02-instalacao-configuracao-squid.md    # Squid 6, estrutura /etc/squid/acls/, squid.conf, UFW, curl e logs
-│   ├── 03-apache-winscp-controlador-web.md    # OpenSSH, WinSCP/SCP, Apache2 + PHP, squidadmin e sudoers
-│   ├── 04-testes-cliente-e-troubleshooting.md # Proxy no navegador, guia anônima, roteiro de validação e troubleshooting
-│   └── 05-comandos-rapidos.md                 # Folha de referência rápida (cheat sheet)
+│   ├── 01-virtualbox-e-ubuntu.md                 # Criação da VM, rede NAT + Host-Only, IP fixo no DHCP e ping
+│   ├── 02-instalacao-configuracao-squid.md       # Squid 6, estrutura /etc/squid/acls/, squid.conf, UFW, curl e logs
+│   ├── 03-apache-winscp-controlador-web.md       # OpenSSH, WinSCP/SCP, Apache2 + PHP, squidadmin e sudoers
+│   ├── 04-testes-cliente-e-troubleshooting.md    # Proxy no navegador, guia anônima, roteiro de validação e troubleshooting
+│   ├── 05-comandos-rapidos.md                    # Folha de referência rápida (cheat sheet)
+│   └── 06-guia-de-entrega.md                     # O que entregar, prints recomendados e coleta automática em .zip
 ├── squidadmin/                                # Painel controlador Web em PHP (UTF-8 + normalização automática de URLs/HTTPS)
 └── Squid-conf.odt                             # Arquivo legado de referência (Squid 2.7/3.x) analisado no Guia 02
 ```
@@ -136,6 +138,7 @@ Siga os guias em sequência:
 | 03 | [docs/03-apache-winscp-controlador-web.md](docs/03-apache-winscp-controlador-web.md) | OpenSSH, envio do `squidadmin` via WinSCP/`scp`, Apache2 + PHP, `DocumentRoot`, permissões `www-data:proxy` e `/etc/sudoers.d/squidadmin` |
 | 04 | [docs/04-testes-cliente-e-troubleshooting.md](docs/04-testes-cliente-e-troubleshooting.md) | Configuração de proxy no navegador, roteiro completo de testes ao vivo e solução de problemas comuns |
 | 05 | [docs/05-comandos-rapidos.md](docs/05-comandos-rapidos.md) | Folha de consulta rápida (*cheat sheet*) com todos os comandos, caminhos e portas |
+| 06 | [docs/06-guia-de-entrega.md](docs/06-guia-de-entrega.md) | O que entregar (`/etc/squid`, Apache HTTP, `/var/www`, `access.log`), prints recomendados e geração automática do `.zip` |
 
 ### Caminho 2 — Provisionamento automatizado do servidor (após concluir o Guia 01)
 Com a VM Ubuntu ligada, `ping` respondendo e OpenSSH ativo, você pode aplicar todos os passos dos **Guias 02 e 03** automaticamente com o script [`setup-servidor.sh`](setup-servidor.sh):
@@ -176,3 +179,4 @@ O fluxo completo foi testado em ambiente real (Host Windows → VM Ubuntu Server
 - [ ] **Guia 03:** Painel Web abrindo em `http://<IP_DA_VM>/index.php` com login funcional
 - [ ] **Guia 04:** Navegador configurado no proxy `<IP_DA_VM>:3128` (com exceção para `<IP_DA_VM>`)
 - [ ] **Guia 04:** Bloqueios e liberações testados no painel e confirmados em `/var/log/squid/access.log`
+- [ ] **Guia 06:** Pacote `entrega-trabalho-squid.zip` gerado com [`scripts/coletar-entrega.sh`](scripts/coletar-entrega.sh) e conferido antes do envio (fora do Git)

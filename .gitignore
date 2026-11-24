@@ -8,6 +8,9 @@
 *.vbox
 *.vbox-prev
 
+# Pacotes de entrega local com arquivos/logs reais da VM (nunca subir em repo público)
+entrega-*
+
 # Arquivos temporários, logs e cookies de teste
 *.log
 *.tmp

@@ -2,7 +2,7 @@
 
 Folha de consulta rápida com todos os comandos, arquivos, credenciais e portas do trabalho de **Squid + Controlador Web (`squidadmin`)** no Ubuntu (VirtualBox).
 
-> **Navegação:** [Índice (README)](../README.md) | **Anterior:** [Guia 04 — Testes no Navegador e Troubleshooting](04-testes-cliente-e-troubleshooting.md)
+> **Navegação:** [Índice (README)](../README.md) | **Anterior:** [Guia 04 — Testes no Navegador e Troubleshooting](04-testes-cliente-e-troubleshooting.md) | **Próximo:** [Guia 06 — Guia de Entrega](06-guia-de-entrega.md)
 
 ---
 
@@ -46,6 +46,11 @@ ssh -t <seu_usuario>@<IP_DO_LINUX> "sudo bash ~/setup-servidor.sh 192.168.56.0/2
 .\scripts\ativar-proxy.ps1
 .\scripts\ativar-proxy.ps1 -UsePac    # Alternativa usando http://<IP_DO_LINUX>/proxy.pac
 .\scripts\desativar-proxy.ps1
+
+# [Windows] Gerar e baixar pacote .zip completo de entrega (etc/squid, Apache HTTP, var/www, access.log)
+scp scripts/coletar-entrega.sh <seu_usuario>@<IP_DO_LINUX>:~/
+ssh -t <seu_usuario>@<IP_DO_LINUX> "sudo bash ~/coletar-entrega.sh"
+scp <seu_usuario>@<IP_DO_LINUX>:~/entrega-trabalho-squid.zip .
 ```
 
 ---
